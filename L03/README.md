@@ -1,0 +1,1 @@
+Links zu youtube und discord sind noch dummies, die einfach zur jeweiligen Website führen.

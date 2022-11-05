@@ -9,27 +9,38 @@
 </head>
 <body>
     <header>
-        <a class="button" href="index.html">Portfolio</a>
-        <a class="button" href="account.html">About Me</a>
-        <a class="button2" href="contacts.html">Kontakt</a>
+        <a id="logobox" href="index.html">
+            <img id="logo" src="task_material2/images/logo.svg">
+        </a>
+        <div class="navigation">
+            <a class="button" href="index.html">Portfolio</a>
+            <a class="button" href="account.html">About Me</a>
+            <a class="button2" href="contacts.html">Kontakt</a>
+        </div>
     </header>
     <!--Hier sind meine Kontaktinformationen-->
-    <p>
-        Phone: <br>
-        Mobile Phone: <br>
-        E-Mail: <br>
-    </p>
-    <p>
-        Anschrift: 78120 Furtwangen, Wilhelmstraße 22
-    </p>
-    <p>
-        Heimatsanschrift: 72555 Metzingen, Fasanenweg 4
-    </p>
-    <!--Hier sind links zu meinen Accounts (Youtube und Discord, erstmal noch dummie-links auf Startseiten)-->
-    <p>
-        <a href="https://www.youtube.com/"><img src="task_material/personal/Youtube.png" width="5%"></a><br>
-        <a href="https://discord.com/"><img src="task_material/personal/Discord.png" width="5%"></a><br>
-    </p>
+    <div class="contacts">
+        <p>
+            Phone: <br>
+            Mobile Phone: <br>
+            E-Mail: <br>
+        </p>
+        <p>
+            Anschrift: 78120 Furtwangen
+        </p>
+        <p>
+            Heimatsanschrift: 72555 Metzingen
+        </p>
+        <!--Hier ist ein direkter Kontakt zu mir-->
+        <p>
+            <strong>Kontaktiere mich direkt:</strong>
+        </p>
+        <textarea class="input1" name="Name" placeholder="Your name"></textarea><br>
+        <textarea class="input1" name="Mail" placeholder="Your e-mail"></textarea><br>
+        <textarea class="input2" name="Message" placeholder="Your message"></textarea><br>
+        <a id="send-button" href="contacts.html">Send</a>
+    </div>
+    <!--Ab hier ist der Footer-->
     <footer>
         <div class="footnotes">
             <a>EIA 1 <br>Musterstraße 1 <br>12345 Musterstadt <br>Tel: 01234567890 <br>Mustermail@mail.de </a>

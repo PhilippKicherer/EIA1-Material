@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,41 +8,49 @@
     <title>About Me</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <a class="button" href="index.html">Portfolio</a>
-        <a class="button2" href="account.html">About Me</a>
-        <a class="button" href="contacts.html">Kontakt</a>
+        <a id="logobox" href="index.html">
+            <img id="logo" src="task_material2/images/logo.svg">
+        </a>
+        <div class="navigation">
+            <a class="button" href="index.html">Portfolio</a>
+            <a class="button2" href="account.html">About Me</a>
+            <a class="button" href="contacts.html">Kontakt</a>
+        </div>
     </header>
     <!--Daten über mich-->
-    <p>
-        Name: Philipp Kicherer <br>
-        Age: 23 <br>
-    </p>
-    <!--Meine Lebensorte-->
-    <p>
-        Born in: Bad Urach <br>
-        Lives in: Metzingen, Furtwangen <br>
-        <img src="task_material/personal/Metzingen.jpg" width="45%"><br>
-        <img src="task_material/personal/Furtwangen.jpg" width="45%"><br>
-    </p>
-    <!--Link auf einen Lebenslauf?-->
+    <div class="content">
+        <p>
+            <strong>Name:</strong> Philipp Kicherer <br>
+            <strong>Age:</strong> 23 <br>
+        </p>
+        <!--Meine Lebensorte-->
+        <p>
+            <strong>Born in:</strong> Bad Urach <br>
+            <strong>Lives in:</strong> Metzingen, Furtwangen <br>
+            <img class="pic" src="task_material/personal/Metzingen.jpg" width="45%">
+            <img class="pic" src="task_material/personal/Furtwangen.jpg" width="45%"><br>
+        </p>
+        <!--Link auf einen Lebenslauf?-->
 
-    <!--Meine Likes/Dislikes-->
-    <p>
-        What I like: Music, Outside, PC, ... <br>
-        <img src="task_material/personal/Musik.jpg" width="25%"><br>
-        <img src="task_material/personal/Laptop.png" width="25%"><br>
-        What I dislike: Loud noises, Bees, Packed places, ... <br>
-        <img src="task_material/personal/People.png" width="25%"><br>
-    </p>
+        <!--Meine Likes/Dislikes-->
+        <p>
+            <strong>What I like:</strong> Music, Outside, PC, ... <br>
+            <img class="pic" src="task_material/personal/Musik.jpg" width="25%">
+            <img class="pic" src="task_material/personal/Laptop.png" width="25%"><br>
+            <strong>What I dislike:</strong> Loud noises, Bees, Packed places, ... <br>
+            <img class="pic" src="task_material/personal/People.png" width="25%"><br>
+        </p>
+    </div>
     <footer>
         <div class="footnotes">
             <a>EIA 1 <br>Musterstraße 1 <br>12345 Musterstadt <br>Tel: 01234567890 <br>Mustermail@mail.de </a>
             <div>
                 <a>Follow Me</a><br>
                 <a href="https://www.youtube.com/">
-                    <img class="icon"src="task_material2/images/icon_youtube.svg">
+                    <img class="icon" src="task_material2/images/icon_youtube.svg">
                 </a>
                 <img class="icon" src="task_material2/images/icon_linkedin.svg">
                 <img class="icon" src="task_material2/images/icon_insta.svg">
@@ -50,4 +59,5 @@
         </div>
     </footer>
 </body>
+
 </html>

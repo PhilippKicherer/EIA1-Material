@@ -8,25 +8,38 @@ html {
 
 /*Styles für alles im body*/
 body {
-    text-align: center;
-    align-items: center;
+    text-align: left;
     margin: 0px;
 }
 
 /*Styles für den Header*/
 header {
-    background-color:rgb(50, 90, 170);
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
     padding: 20px;
-    height: 20%;
+    height: 400px;
+    background-image: url(task_material/personal/Background.jpg);
 }
 
 /*Styles für das Logo im Header*/
-#logo {
-    width:55px;
-    height: auto;
+#logobox {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
 }
 
-/*Styles für die BUttons im Header, mit Interaktionen*/
+#logo {
+    height: 30px;
+    width:auto;
+}
+
+.navigation {
+    display:flex;
+    justify-content: flex-end;
+}
+
+/*Styles für die Buttons im Header, mit Interaktionen*/
 .button {
     text-decoration: none;
     color: #bebebe;
@@ -47,6 +60,77 @@ header {
 .button2 {
     color: white;
     text-decoration: underline;
+    margin:20px;
+}
+
+/*Styles für den Inhalt*/
+.content {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pic {
+    border-radius: 8px;
+    height: 10em;
+    width: auto;
+    margin: 5px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+
+/*Styles für den Input auf Contact */
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    padding-top: 40px;
+    padding-left: 25%;
+    padding-right:25%;
+    padding-bottom: 40px;
+}
+
+.input1 {
+    background-color: #707070;
+    margin: 2px;
+    width: 50%;
+    height: 18px;
+    border-color: #949494;
+    color: #ffffff;
+}
+
+.input1::placeholder {
+    color: white;
+}
+
+.input2 {
+    background-color: #707070;
+    margin: 2px;
+    width: 50%;
+    height: 250px;
+    border-color: #949494;
+    color: #ffffff;
+}
+
+.input2::placeholder {
+    color: white;
+}
+
+#send-button {
+    background-color: #707070;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    width: 8%;
+    border-style: inset;
+    border-color: #7c7c7c;
+    border-radius: 5px;
+    text-align: center;
 }
 
 /*Styles für den Footer*/

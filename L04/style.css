@@ -1,0 +1,71 @@
+/*Gilt für die ganze Website*/
+html {
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/*Styles für alles im body*/
+body {
+    text-align: center;
+    align-items: center;
+    margin: 0px;
+}
+
+/*Styles für den Header*/
+header {
+    background-color:rgb(50, 90, 170);
+    padding: 20px;
+    height: 20%;
+}
+
+/*Styles für das Logo im Header*/
+#logo {
+    width:55px;
+    height: auto;
+}
+
+/*Styles für die BUttons im Header, mit Interaktionen*/
+.button {
+    text-decoration: none;
+    color: #bebebe;
+    margin: 20px;
+}
+
+.button:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.button:active {
+    color:white;
+    text-decoration: underline;
+}
+
+/*Button der aktuellen Seite (zB "Kontakt" Button in contacts.html)*/
+.button2 {
+    color: white;
+    text-decoration: underline;
+}
+
+/*Styles für den Footer*/
+footer {
+    background-color: #eaeaea;
+    color:rgb(20, 20, 20);
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.footnotes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+}

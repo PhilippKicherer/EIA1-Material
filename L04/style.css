@@ -36,7 +36,7 @@ header {
 
 .navigation {
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
 }
 
 /*Styles für die Buttons im Header, mit Interaktionen*/

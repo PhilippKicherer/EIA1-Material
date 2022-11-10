@@ -1,0 +1,190 @@
+/*Gilt für die ganze Website*/
+html {
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/*Styles für alles im body*/
+body {
+    margin: 0px;
+}
+
+/*Styles für den Header*/
+header {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding: 20px;
+    height: 400px;
+    background-image: url(task_material/personal/Background.jpg);
+}
+
+/*Styles für das Logo im Header*/
+#logobox {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+#logo {
+    height: 30px;
+    width:auto;
+}
+
+.navigation {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+/*Styles für die Buttons im Header, mit Interaktionen*/
+.button {
+    text-decoration: none;
+    color: #bebebe;
+    margin: 20px;
+    height: 30px;
+}
+
+.button:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.button:active {
+    color:white;
+    text-decoration: underline;
+}
+
+/*Button der aktuellen Seite (zB "Kontakt" Button in contacts.html)*/
+.button2 {
+    color: white;
+    text-decoration: underline;
+    margin:20px;
+}
+
+/*Styles für den Inhalt*/
+.content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wrapper {
+    margin:0px;
+    padding:0px;
+}
+
+.wrapper:hover img {
+    opacity: 0.8;
+    transition: opacity 0.5s ease-in-out 0.1s;
+}
+
+.wrapper:hover img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out 0.1s;
+}
+
+.content img {
+    width: auto;
+    max-width: 80%;
+}
+
+.content video {
+    width: auto;
+    max-width: 80%;
+}
+
+.pic {
+    border-radius: 8px;
+    height: 10em;
+    width: auto;
+    margin: 5px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+
+/*Styles für den Input auf Contact */
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.input1 {
+    background-color: #707070;
+    margin: 2px;
+    width: 400px;
+    height: 18px;
+    border-color: #949494;
+    color: #ffffff;
+}
+
+.input1::placeholder {
+    color: white;
+}
+
+.input2 {
+    background-color: #707070;
+    margin: 2px;
+    width: 400px;
+    height: 250px;
+    border-color: #949494;
+    color: #ffffff;
+}
+
+.input2::placeholder {
+    color: white;
+}
+
+#send-button {
+    background-color: #707070;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    width: 8%;
+    border-style: inset;
+    border-color: #7c7c7c;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*Styles für den Footer*/
+footer {
+    background-color: #eaeaea;
+    color:black;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.footnotes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footnotes a {
+    opacity: 0.8;
+}
+
+.icon {
+    margin: 2.5px;
+    width: 20px;
+    height: auto;
+}
+
+.icon {
+    opacity: 0.6;
+}
+
+.icon:hover {
+    opacity: 1;
+}

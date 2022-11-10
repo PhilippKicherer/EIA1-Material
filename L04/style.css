@@ -1,4 +1,4 @@
-/*Gilt für die ganze Website*/
+                                                                                        /*Styles für die ganze Seite*/
 html {
     background-color: white;
     padding: 0px;
@@ -12,7 +12,7 @@ body {
     margin: 0px;
 }
 
-/*Styles für den Header*/
+                                                                                        /*Styles für den Header*/
 header {
     display:flex;
     flex-direction:row;
@@ -63,12 +63,35 @@ header {
     margin:20px;
 }
 
-/*Styles für den Inhalt*/
+                                                                                        /*Styles für den Footer*/
+footer {
+    background-color: #eaeaea;
+    color:rgb(20, 20, 20);
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.footnotes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+}
+
+
+                                                                                        /*Styles für index.html*/
 .content {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+                                                                                        /*Styles für account.html*/
 .pic {
     border-radius: 8px;
     height: 10em;
@@ -79,8 +102,7 @@ header {
 }
 
 
-/*Styles für den Input auf Contact */
-
+                                                                                        /*Styles für contacts.html*/
 .contacts{
     display: flex;
     flex-direction: column;
@@ -126,25 +148,4 @@ header {
     border-color: #7c7c7c;
     border-radius: 5px;
     text-align: center;
-}
-
-/*Styles für den Footer*/
-footer {
-    background-color: #eaeaea;
-    color:rgb(20, 20, 20);
-    font-size: 16px;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-}
-
-.footnotes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.icon {
-    width: 20px;
-    height: auto;
 }

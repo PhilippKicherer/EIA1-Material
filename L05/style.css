@@ -1,4 +1,4 @@
-/*Gilt für die ganze Website*/
+/*----------------------------------------------------------------------------------Styles für die ganze Website*/
 html {
     background-color: white;
     padding: 0px;
@@ -11,14 +11,41 @@ body {
     margin: 0px;
 }
 
-/*Styles für den Header*/
+/*----------------------------------------------------------------------------------Styles für das Banner*/
+#banner {
+    position: fixed;
+    text-align: center;
+    top: 60px;
+    right: -90px;
+    width: 400px;
+    line-height: 28px;
+    color: white;
+    background-color: rgb(36, 36, 36);
+    transform:rotate(35deg);
+    font-size: 24px;
+}
+
+/*----------------------------------------------------------------------------------Styles für den Header*/
 header {
     display:flex;
     flex-direction:row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 20px;
     height: 400px;
-    background-image: url(task_material/personal/Background.jpg);
+    animation: animate 12s ease-in-out infinite;
+    background-size: cover;
+}
+
+@keyframes animate {
+    0%, 100% {
+        background-image:url(task_material/personal/Background1.jpg);
+    }
+    33% {
+        background-image:url(task_material/personal/Background2.jpg);
+    }
+    66% {
+        background-image:url(task_material/personal/Background3.jpg);
+    }
 }
 
 /*Styles für das Logo im Header*/
@@ -33,6 +60,7 @@ header {
     width:auto;
 }
 
+/*Navigation als Flexbox*/
 .navigation {
     display:flex;
     justify-content: space-evenly;
@@ -63,20 +91,69 @@ header {
     margin:20px;
 }
 
-/*Styles für den Inhalt*/
+/*----------------------------------------------------------------------------------Styles für den Footer*/
+footer {
+    background-color: #eaeaea;
+    color:black;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/*Footer wrap als Flexbox*/
+.footnotes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footnotes a {
+    opacity: 0.8;
+}
+
+/*Footer Icons mit Interaktionen*/
+.icon {
+    margin: 2.5px;
+    width: 20px;
+    height: auto;
+    opacity: 0.6;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
+/*----------------------------------------------------------------------------------Styles für index.html*/
+
 .content {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.content h2{
+    font-family: 'Shadows Into Light';
+    font-size: 48px;
+    color:rgb(175, 175, 175);
+    margin-top: 20px;
+    margin-bottom: 2px;
 }
 
 .wrapper {
-    margin:0px;
     padding:0px;
+    max-width: 100%;
+    width: max-content;
 }
 
 .wrapper:hover img {
-    opacity: 0.8;
+    opacity: 0.6;
     transition: opacity 0.5s ease-in-out 0.1s;
 }
 
@@ -88,12 +165,20 @@ header {
 
 .content img {
     width: auto;
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .content video {
     width: auto;
-    max-width: 80%;
+    max-width: 100%;
+}
+
+/*----------------------------------------------------------------------------------Styles für account.html*/
+
+.account {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .pic {
@@ -105,8 +190,7 @@ header {
     margin-bottom: 24px;
 }
 
-
-/*Styles für den Input auf Contact */
+/*----------------------------------------------------------------------------------Styles für contacts.html*/
 
 .contacts{
     display: flex;
@@ -153,38 +237,4 @@ header {
     border-color: #7c7c7c;
     border-radius: 5px;
     text-align: center;
-}
-
-/*Styles für den Footer*/
-footer {
-    background-color: #eaeaea;
-    color:black;
-    font-size: 16px;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-}
-
-.footnotes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.footnotes a {
-    opacity: 0.8;
-}
-
-.icon {
-    margin: 2.5px;
-    width: 20px;
-    height: auto;
-}
-
-.icon {
-    opacity: 0.6;
-}
-
-.icon:hover {
-    opacity: 1;
 }

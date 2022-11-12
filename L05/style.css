@@ -122,6 +122,7 @@ footer {
 
 .icon:hover {
     opacity: 1;
+    transition: opacity 0.1s ease-in-out 0.1s;
 }
 
 /*----------------------------------------------------------------------------------Styles für index.html*/

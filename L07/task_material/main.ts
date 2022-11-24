@@ -1,103 +1,76 @@
-const DE = "Deutschland";
-const FR = "Frankreich";
-const IT = "Italien";
-const SP = "Spanien";
-
-let Jahr = 2022;
-let Jahr_alt = 2021;
-
-let DE_Einwohner = 83.2;
-let FR_Einwohner = 67.8;
-let IT_Einwohner = 59.0;
-let SP_Einwohner = 47.4;
-
+//Einwohner 2021, um den Wachstum zu berechnen
 let DE_Einwohner_alt = 83.1;
 let FR_Einwohner_alt = 65.3;
 let IT_Einwohner_alt = 59.0;
 let SP_Einwohner_alt = 47.4;
+let EU_Einwohner_alt = 447.01;
 
-let EU_Einwohner = 450.0;
+//Country
+const DE = "Deutschland";
+const FR = "Frankreich";
+const IT = "Italien";
+const SP = "Spanien";
+const EU = "der europäischen Union"
 
-let RateDE = (1-DE_Einwohner_alt/DE_Einwohner)*100;
-let RateFR = (1-FR_Einwohner_alt/FR_Einwohner)*100;
-let RateIT = (1-IT_Einwohner_alt/IT_Einwohner)*100;
-let RateSP = (1-SP_Einwohner_alt/SP_Einwohner)*100;
+//Population
+let DE_Einwohner = 83.2;
+let FR_Einwohner = 67.8;
+let IT_Einwohner = 59.0;
+let SP_Einwohner = 47.4;
+let EU_Einwohner = 446.83;
 
-let EUrel = 100;
+//PopulationRel (Einwohner in relation zu EU in %) und Height (Höhe des Balkens)
+let DE_PopRel = 100*DE_Einwohner/EU_Einwohner;
+let FR_PopRel = 100*FR_Einwohner/EU_Einwohner;
+let IT_PopRel = 100*IT_Einwohner/EU_Einwohner;
+let SP_PopRel = 100*SP_Einwohner/EU_Einwohner;
+let EU_PopRel = 100*EU_Einwohner/EU_Einwohner;
 
-console.log("Die Einwoherzahl in " + DE + " beträgt " + DE_Einwohner + " Millionen im Jahr " + Jahr + ".");
-console.log("Die Einwohnerzahl in " + DE + " ist seit " + Jahr_alt + " um " + RateDE + " % gestiegen");
-console.log("Die Einwoherzahl in " + FR + " beträgt " + FR_Einwohner + " Millionen im Jahr " + Jahr + ".");
-console.log("Die Einwohnerzahl in " + FR + " ist seit " + Jahr_alt + " um " + RateFR + " % gestiegen");
-console.log("Die Einwoherzahl in " + IT + " beträgt " + IT_Einwohner + " Millionen im Jahr " + Jahr + ".");
-console.log("Die Einwohnerzahl in " + IT + " ist seit " + Jahr_alt + " um " + RateIT + " % gestiegen");
-console.log("Die Einwoherzahl in " + SP + " beträgt " + SP_Einwohner + " Millionen im Jahr " + Jahr + ".");
-console.log("Die Einwohnerzahl in " + SP + " ist seit " + Jahr_alt + " um " + RateSP + " % gestiegen");
+//PopulationInc (Einwohnerwachstum in %)
+let DE_PopInc = (1-DE_Einwohner_alt/DE_Einwohner)*100;
+let FR_PopInc = (1-FR_Einwohner_alt/FR_Einwohner)*100;
+let IT_PopInc = (1-IT_Einwohner_alt/IT_Einwohner)*100;
+let SP_PopInc = (1-SP_Einwohner_alt/SP_Einwohner)*100;
+let EU_PopInc = (1-EU_Einwohner_alt/EU_Einwohner)*100;
 
+//PopulationIncFlat (Einwohnerwachstum in Zahlen)
+let DE_PopIncFlat = DE_Einwohner-DE_Einwohner_alt;
+let FR_PopIncFlat = FR_Einwohner-FR_Einwohner_alt;
+let IT_PopIncFlat = IT_Einwohner-IT_Einwohner_alt;
+let SP_PopIncFlat = SP_Einwohner-SP_Einwohner_alt;
+let EU_PopIncFlat = EU_Einwohner-EU_Einwohner_alt;
 
-//Funktionen
+//Funktion (Eine Funktion mit dummy Daten, diese werden beim Event als Attribute hinzugefügt)
 
-//Funktion EU
-function eu(){
-    document.querySelector("h1").innerHTML = "Einwohnerzahl in der europäischen union";
-    document.querySelector("#popges h2").innerHTML = EU_Einwohner.toString() + "Mio";
-    document.querySelector("#popges p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in der EU in 2022";
-    document.querySelector("#poprel h2").innerHTML = "100 %";
-    //document.querySelector("#popinc h2").innerHTML = //Hier fehlt die Populations Wachstumsrate der EU
-    //document.querySelector("#popincges h2").innerHTML = //Hier fehlt der Wachstum der Population in ganzen Zahlen
-    document.querySelector(".chart").setAttribute('style', 'height:' + EUrel + '%');
-}
-
-//Funktion DE
-function germany(){
-    document.querySelector("h1").innerHTML = "Einwohnerzahl in Deutschland";
-    document.querySelector("#popges h2").innerHTML = DE_Einwohner.toString() + "Mio";
-    document.querySelector("#popges p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in Deutschland in 2022";
-    //document.querySelector("#poprel h2").innerHTML = //Hier fehlt die relative Population zur EU
-    document.querySelector("#popinc h2").innerHTML = RateDE.toFixed(3) + "%";
-    //document.querySelector("#popincges h2").innerHTML = //Hier fehlt der Wachstum der Population in ganzen Zahlen
-    document.querySelector(".wrapper active").setAttribute('class', "wrapper");
-    document.querySelector(".germany").setAttribute('class', "wrapper active");
-}
-
-//Funktion FR
-function france(){
-    document.querySelector("h1").innerHTML = "Einwohnerzahl in Frankreich"
-    document.querySelector("#popges h2").innerHTML = FR_Einwohner.toString() + "Mio";
-    document.querySelector("#popges p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in Frankreich in 2022";
-    //document.querySelector("#poprel h2").innerHTML = //Hier fehlt die relative Population zur EU
-    document.querySelector("#popinc h2").innerHTML = RateFR.toFixed(3) + "%";
-    //document.querySelector("#popincges h2").innerHTML = //Hier fehlt der Wachstum der Population in ganzen Zahlen
-}
-
-//Funktion IT
-function italy(){
-    document.querySelector("h1").innerHTML = "Einwohnerzahl in Italien"
-    document.querySelector("#popges h2").innerHTML = IT_Einwohner.toString() + "Mio";
-    document.querySelector("#popges p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in Italien in 2022";
-    //document.querySelector("#poprel h2").innerHTML = //Hier fehlt die relative Population zur EU
-    document.querySelector("#popinc h2").innerHTML = RateIT.toFixed(3) + "%";
-    //document.querySelector("#popincges h2").innerHTML = //Hier fehlt der Wachstum der Population in ganzen Zahlen
-}
-
-//Funktion SP
-function spain(){
-    document.querySelector("h1").innerHTML = "Einwohnerzahl in Spanien"
-    document.querySelector("#popges h2").innerHTML = SP_Einwohner.toString() + "Mio";
-    document.querySelector("#popges p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in Spanien in 2022";
-    //document.querySelector("#poprel h2").innerHTML = //Hier fehlt die relative Population zur EU
-    document.querySelector("#popinc h2").innerHTML = RateSP.toFixed(3) + "%";
-    //document.querySelector("#popincges h2").innerHTML = //Hier fehlt der Wachstum der Population in ganzen Zahlen
+function content(Country:string , Population:number , PopulationRel:number , PopulationInc:number , PopulationIncFlat:number , Height:number){
+    document.querySelector("h1").innerHTML = "Einwohnerzahl in " + Country;
+    document.querySelector("#section_1 h2").innerHTML = Population.toString() + "Mio";
+    document.querySelector("#section_1 p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in " + Country + " in 2022";
+    document.querySelector("#section_2 h2").innerHTML = PopulationRel.toFixed(0) + "%";
+    document.querySelector("#section_3 h2").innerHTML = PopulationInc.toFixed(3) + "%";
+    document.querySelector("#section_4 h2").innerHTML = PopulationIncFlat.toFixed(3) + "Mio";
+    document.querySelector(".chart").setAttribute('style', 'height:' + Height.toFixed(0) + "%");
 }
 
 //Events (Klick auf ein HTML-Element)
-
-document.querySelector(".germany").addEventListener('click', germany);
-document.querySelector(".france").addEventListener('click', france);
-document.querySelector(".italy").addEventListener('click', italy);
-document.querySelector(".spain").addEventListener('click', spain);
-document.querySelector(".stars").addEventListener('click', eu);
-
-//document.querySelector("#test").addEventListener('click', function() {myfunction();})
-
 //Funktionen in Layern, äußere ist dummie in der inneren werden die Parameter angegeben.
+
+document.querySelector(".germany").addEventListener('click', function() {
+    content(DE, DE_Einwohner, DE_PopRel, DE_PopInc, DE_PopIncFlat, DE_PopRel);
+})
+
+document.querySelector(".france").addEventListener('click', function() {
+    content(FR, FR_Einwohner, FR_PopRel, FR_PopInc, FR_PopIncFlat, FR_PopRel);
+})
+
+document.querySelector(".italy").addEventListener('click', function() {
+    content(IT, IT_Einwohner, IT_PopRel, IT_PopInc, IT_PopIncFlat, IT_PopRel);
+})
+
+document.querySelector(".spain").addEventListener('click', function() {
+    content(SP, SP_Einwohner, SP_PopRel, SP_PopInc, SP_PopIncFlat, SP_PopRel);
+})
+
+document.querySelector(".stars").addEventListener('click', function() {
+    content(EU, EU_Einwohner, EU_PopRel, EU_PopInc, EU_PopIncFlat, EU_PopRel);
+})

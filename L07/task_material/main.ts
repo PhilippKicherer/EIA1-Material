@@ -40,6 +40,12 @@ let IT_PopIncFlat = IT_Einwohner - IT_Einwohner_alt;
 let SP_PopIncFlat = SP_Einwohner - SP_Einwohner_alt;
 let EU_PopIncFlat = EU_Einwohner - EU_Einwohner_alt;
 
+//Bonus Aufgabe (I tried :D)
+function classtoggle() {
+    document.querySelector(".active").classList.remove("active");
+    document.querySelector(".wrapper:hover").classList.add("active");
+}
+
 //Funktion (Eine Funktion mit dummy Daten, diese werden beim Event als Attribute hinzugefügt)
 function content(Country: string, Population: number, PopulationRel: number, PopulationInc: number, PopulationIncFlat: number) {
     document.querySelector("h1").innerHTML = "Einwohnerzahl in " + Country;
@@ -49,6 +55,7 @@ function content(Country: string, Population: number, PopulationRel: number, Pop
     document.querySelector("#section_3 h2").innerHTML = PopulationInc.toFixed(3) + "%";
     document.querySelector("#section_4 h2").innerHTML = PopulationIncFlat.toFixed(3) + "Mio";
     document.querySelector(".chart").setAttribute('style', "height:" + PopulationRel.toFixed(0) + "%");
+    classtoggle();
 }
 
 //Events (Klick auf ein HTML-Element)

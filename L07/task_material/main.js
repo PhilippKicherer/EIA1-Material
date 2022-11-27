@@ -34,31 +34,37 @@ let FR_PopIncFlat = FR_Einwohner - FR_Einwohner_alt;
 let IT_PopIncFlat = IT_Einwohner - IT_Einwohner_alt;
 let SP_PopIncFlat = SP_Einwohner - SP_Einwohner_alt;
 let EU_PopIncFlat = EU_Einwohner - EU_Einwohner_alt;
+//Bonus Aufgabe (I tried :D)
+function classtoggle() {
+    document.querySelector(".active").setAttribute('class', ".wrapper");
+    document.querySelector(".wrapper:hover").setAttribute('class', ".active");
+}
 //Funktion (Eine Funktion mit dummy Daten, diese werden beim Event als Attribute hinzugefügt)
-function content(Country, Population, PopulationRel, PopulationInc, PopulationIncFlat, Height) {
+function content(Country, Population, PopulationRel, PopulationInc, PopulationIncFlat) {
     document.querySelector("h1").innerHTML = "Einwohnerzahl in " + Country;
     document.querySelector("#section_1 h2").innerHTML = Population.toString() + "Mio";
     document.querySelector("#section_1 p").innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in " + Country + " in 2022";
     document.querySelector("#section_2 h2").innerHTML = PopulationRel.toFixed(0) + "%";
     document.querySelector("#section_3 h2").innerHTML = PopulationInc.toFixed(3) + "%";
     document.querySelector("#section_4 h2").innerHTML = PopulationIncFlat.toFixed(3) + "Mio";
-    document.querySelector(".chart").setAttribute('style', 'height:' + Height.toFixed(0) + "%");
+    document.querySelector(".chart").setAttribute('style', "height:" + PopulationRel.toFixed(0) + "%");
+    classtoggle();
 }
 //Events (Klick auf ein HTML-Element)
 //Funktionen in Layern, äußere ist dummie in der inneren werden die Parameter angegeben.
 document.querySelector(".germany").addEventListener('click', function () {
-    content(DE, DE_Einwohner, DE_PopRel, DE_PopInc, DE_PopIncFlat, DE_PopRel);
+    content(DE, DE_Einwohner, DE_PopRel, DE_PopInc, DE_PopIncFlat);
 });
 document.querySelector(".france").addEventListener('click', function () {
-    content(FR, FR_Einwohner, FR_PopRel, FR_PopInc, FR_PopIncFlat, FR_PopRel);
+    content(FR, FR_Einwohner, FR_PopRel, FR_PopInc, FR_PopIncFlat);
 });
 document.querySelector(".italy").addEventListener('click', function () {
-    content(IT, IT_Einwohner, IT_PopRel, IT_PopInc, IT_PopIncFlat, IT_PopRel);
+    content(IT, IT_Einwohner, IT_PopRel, IT_PopInc, IT_PopIncFlat);
 });
 document.querySelector(".spain").addEventListener('click', function () {
-    content(SP, SP_Einwohner, SP_PopRel, SP_PopInc, SP_PopIncFlat, SP_PopRel);
+    content(SP, SP_Einwohner, SP_PopRel, SP_PopInc, SP_PopIncFlat);
 });
 document.querySelector(".stars").addEventListener('click', function () {
-    content(EU, EU_Einwohner, EU_PopRel, EU_PopInc, EU_PopIncFlat, EU_PopRel);
+    content(EU, EU_Einwohner, EU_PopRel, EU_PopInc, EU_PopIncFlat);
 });
 //# sourceMappingURL=main.js.map

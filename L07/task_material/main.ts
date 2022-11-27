@@ -42,8 +42,8 @@ let EU_PopIncFlat = EU_Einwohner - EU_Einwohner_alt;
 
 //Bonus Aufgabe (I tried :D)
 function classtoggle() {
-    document.querySelector(".active").classList.remove("active");
-    document.querySelector(".wrapper:hover").classList.add("active");
+    document.querySelector(".active").setAttribute('class', ".wrapper");
+    document.querySelector(".wrapper:hover").setAttribute('class', ".active");
 }
 
 //Funktion (Eine Funktion mit dummy Daten, diese werden beim Event als Attribute hinzugefügt)

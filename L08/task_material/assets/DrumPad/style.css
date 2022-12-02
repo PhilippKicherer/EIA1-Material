@@ -1,0 +1,21 @@
+html {
+    text-align: center;
+    background-color: #292939;
+}
+
+.nav {
+    margin: auto;
+    max-width: 470px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    height: 150px;
+    width: 150px;
+    background-color: #7949cb;
+    margin: 5px;
+}

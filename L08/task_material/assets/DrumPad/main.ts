@@ -1,21 +1,32 @@
 // Variablen
 
-let samples: string [] = ["samples/A.mp3", "samples/C.mp3", "samples/F.mp3", "samples/G.mp3", "samples/hihat.mp3", "samples/kick.mp3", "samples/laugh-1.mp3", "samples/laugh-2.mp3", "samples/snare.mp3"];
+//Variablen Samples
+let a: HTMLAudioElement = new Audio("samples/A.mp3");
+let c: HTMLAudioElement = new Audio("samples/C.mp3");
+let f: HTMLAudioElement = new Audio("samples/F.mp3");
+let g: HTMLAudioElement = new Audio("samples/G.mp3");
+let hihat: HTMLAudioElement = new Audio("samples/hihat.mp3");
+let kick: HTMLAudioElement = new Audio("samples/kick.mp3");
+let snare: HTMLAudioElement = new Audio("samples/snare.mp3");
+let laugh1: HTMLAudioElement = new Audio("samples/laugh-1.mp3");
+let laugh2: HTMLAudioElement = new Audio("samples/laugh-2.mp3");
 
-//button array
+//Samples Array
+const sample =[a, c, f, g, hihat, kick, snare, laugh1, laugh2];
+
+//Buttons Array
 const buttons = document.querySelectorAll(".button");
 let button_selector = Array.from(buttons);
 
-//Funktion
-//zuerst Selektor, um den Button festzulegen
-//dann das richtige Sample mit obiger Variablen zuordnen
-function playSample(Button: string[], Sample: string[]){
-}
+//Damit i nicht über 9 geht
+let totalbuttons = buttons.length;
 
 //Events
-//hier wird das Sample dann abgespielt -> query selector muss auf .button liegen, welcher spezifische Button es ist wird in der Funktion bestimmt.
+//Die Funktion vergleicht beim klick die Position des Buttons im Array mit der Position des Samples im Array und spielt diesen dann ab.
+//(Hoffe das ist auch so, ohne Funktion, in Ordnung, ansonsten verbessere ich nochmal)
 
-document.querySelector("button_selector[0]").addEventListener('click', function() {
-    let sound: HTMLAudioElement = new Audio("samples[0]");
-    sound.play;
-})
+for(let i=0; i<totalbuttons; i++){
+    document.querySelectorAll(".button")[i].addEventListener("click", function(){
+        sample[i].play();
+    })
+}

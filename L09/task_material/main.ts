@@ -28,7 +28,7 @@ for (let i = 0; i < buttons.length; i++) {
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Alles zum Beat und Remix
-// Für den Beat muss ich den array anders definieren
+//Für den Beat muss ich den array anders definieren
 //Array für beats
 
 let beat: string[] = [("./samples/A.mp3"), ("./samples/C.mp3"), ("./samples/F.mp3"), ("./samples/G.mp3"), ("./samples/hihat.mp3"), ("./samples/kick.mp3"), ("./samples/snare.mp3"), ("./samples/laugh-1.mp3"), ("./samples/laugh-2.mp3")]

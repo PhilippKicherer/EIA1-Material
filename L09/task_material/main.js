@@ -1,4 +1,4 @@
-// Variablen
+//Hier ist alles zu den Pads
 //Variablen Samples (meine Version)
 let a = new Audio("samples/A.mp3");
 let c = new Audio("samples/C.mp3");
@@ -14,71 +14,58 @@ const sample = [a, c, f, g, hihat, kick, snare, laugh1, laugh2];
 //Buttons Array
 const buttons = document.querySelectorAll(".button");
 let button_selector = Array.from(buttons);
-//Damit i nicht über 9 geht
-let totalbuttons = buttons.length;
-//Events
+//Event für das Drumpad
 //Die Funktion vergleicht beim klick die Position des Buttons im Array mit der Position des Samples im Array und spielt diesen dann ab.
-//(Ich habe hier noch eine für mich einfachere Version benutzt, da brauche ich nicht an jedem einzelnen Element einen Event Listener, werde verbessern falls nötig)
-for (let i = 0; i < totalbuttons; i++) {
+for (let i = 0; i < buttons.length; i++) {
     document.querySelectorAll(".button")[i].addEventListener("click", function () {
         sample[i].play();
     });
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Hier ist alles für den Beat
 // Für den Beat muss ich den array anders definieren
 //Array für beats
-let beat = [("./samples/kick.mp3"), ("./samples/snare.mp3"), ("./samples/laugh-1.mp3")];
-//Funkionen
+let beat = [("./samples/A.mp3"), ("./samples/C.mp3"), ("./samples/F.mp3"), ("./samples/G.mp3"), ("./samples/hihat.mp3"), ("./samples/kick.mp3"), ("./samples/snare.mp3"), ("./samples/laugh-1.mp3"), ("./samples/laugh-2.mp3")];
+//Variablen für den Play Button
+let count = 0;
+let sound;
+//Funkion playSample (wird für die pads nicht benutzt, deswegen erst hier)
 function playSample(sample_selector) {
     let sound = new Audio(sample_selector);
     sound.play();
 }
-//Funktion für den Beat
-function sickbeat() {
-    playSample(beat[2]);
-    setInterval(function () {
-        playSample(beat[0]);
-    }, 2000);
-    setTimeout(function () {
-        setInterval(function () {
-            playSample(beat[0]);
-        }, 2000);
-    }, 750);
-    setTimeout(function () {
-        setInterval(function () {
-            playSample(beat[1]);
-        }, 1000);
-    }, 1500);
+function myBeat() {
+    playSample(beat[count]);
+    count += 1;
+    if (count > (beat.length - 1))
+        count = 0;
 }
-/*function playBeat0() {
-    playSample(beat[2]);
-}
-function playBeat1() {
-    setInterval(function () {
-        playSample (beat[0]);
-    }, 2000);
-}
-function playBeat2() {
-    setInterval(function() {
-        playSample (beat[1]);
-    }, 1000);
-}*/
-document.querySelector("#playbtn").addEventListener("click", function () {
-    sickbeat();
-    /*    playBeat0();
-        playBeat1();
-        setTimeout(function() {
-            playBeat1();
-        }, 750);
-        setTimeout(function() {
-            playBeat2();
-        }, 1500);*/
-    document.querySelector("#playbtn").className.replace("play", "stop");
-});
-document.querySelector("#playbtn").addEventListener("click", function () {
-    if (document.querySelector("#playbtn").classList.contains("stop")) {
-        document.querySelector("#playbtn").classList.remove("stop");
+function PlayBeat() {
+    if (document.querySelector("#playbtn i").classList.contains("fa-play")) {
+        document.querySelector("#playbtn i").classList.remove("fa-play");
+        document.querySelector("#playbtn i").classList.add("fa-stop");
+        sound = setInterval(myBeat, 500);
     }
-    ;
+    else {
+        document.querySelector("#playbtn i").classList.remove("fa-stop");
+        document.querySelector("#playbtn i").classList.add("fa-play");
+        clearInterval(sound);
+    }
+}
+document.querySelector("#playbtn").addEventListener("click", function () {
+    PlayBeat();
 });
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Alles zum Remix (der Array wird vom beat verwendet)
+//Variablen für den Remix (die variable count wird auch vom beat verwendet)
+let b;
+//Funktion für den Remix
+function Mix() {
+    document.querySelector("#remixbtn").addEventListener("click", function () {
+        b = setInterval(function () {
+            playSample(beat[count]);
+            count = Math.floor(Math.random());
+        }, 500);
+    });
+}
 //# sourceMappingURL=main.js.map

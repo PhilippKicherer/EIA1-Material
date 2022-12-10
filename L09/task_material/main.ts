@@ -1,4 +1,4 @@
-//Hier ist alles zu den Pads
+//Alles zu den Pads
 //Variablen Samples (meine Version)
 let a: HTMLAudioElement = new Audio("samples/A.mp3");
 let c: HTMLAudioElement = new Audio("samples/C.mp3");
@@ -27,7 +27,7 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Hier ist alles für den Beat
+//Alles zum Beat und Remix
 // Für den Beat muss ich den array anders definieren
 //Array für beats
 
@@ -35,6 +35,7 @@ let beat: string[] = [("./samples/A.mp3"), ("./samples/C.mp3"), ("./samples/F.mp
 
 //Variablen für den Play Button
 
+let check: number = 0;
 let count: number = 0;
 let sound: number;
 
@@ -44,6 +45,13 @@ function playSample(sample_selector: string) {
     sound.play();
 }
 
+//Funktion für den Remix
+function Mix() {
+    playSample(beat[count]);
+    count = Math.round(Math.random() * 9);
+};
+
+//Funktion für den Beat
 function myBeat() {
     playSample(beat[count]);
     count += 1;
@@ -51,36 +59,37 @@ function myBeat() {
         count = 0;
 }
 
+//Bedingung, welcher beat wird abgespielt
+function playSong() {
+    if (check == 0) {
+        myBeat();
+    }
+    else {
+        Mix();
+    }
+}
+
+//Diese Funktion spielt den beat oder den remix ab und ändert die Klassen der HTML Elemente
 function PlayBeat() {
     if (document.querySelector("#playbtn i").classList.contains("fa-play")) {
         document.querySelector("#playbtn i").classList.remove("fa-play");
         document.querySelector("#playbtn i").classList.add("fa-stop");
-        sound =setInterval(myBeat, 500);
+        sound = setInterval(playSong, 500);
     }
     else {
         document.querySelector("#playbtn i").classList.remove("fa-stop");
         document.querySelector("#playbtn i").classList.add("fa-play");
         clearInterval(sound);
+        count = 0;
     }
 }
 
+//Event, um den beat abzuspielen
 document.querySelector("#playbtn").addEventListener("click", function () {
     PlayBeat();
 });
 
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Alles zum Remix (der Array wird vom beat verwendet)
-//Variablen für den Remix (die variable count wird auch vom beat verwendet)
-
-let b: number;
-
-//Funktion für den Remix
-
-function Mix() {
-    document.querySelector("#remixbtn").addEventListener("click", function () {
-        b = setInterval(function () {
-            playSample(beat[count]);
-            count = Math.floor(Math.random());
-        }, 500);
-    });
-}
+//Event um die Variable check auf 1 zu setzen, das dient als token um zu entscheiden was abgespielt wird.
+document.querySelector("#remixbtn").addEventListener("click", function () {
+    check = 1;
+});

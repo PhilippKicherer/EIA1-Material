@@ -44,28 +44,24 @@ function playSample(sample_selector: string) {
     sound.play();
 }
 
-//Funktion für den Beat
-function playBeat0() {
-    playSample(beat[2]);
-}
-function playBeat1() {
+//Funktion für den beat
+function sickbeat() {
+    playSample(beat[7]);
     setInterval(function () {
-        playSample (beat[0]);
+        playSample(beat[5]);
     }, 2000);
-}
-function playBeat2() {
-    setInterval(function() {
-        playSample (beat[1]);
-    }, 1000);
+    setTimeout(function () {
+        setInterval(function () {
+            playSample(beat[5]);
+        }, 2000);
+    }, 750);
+    setTimeout(function () {
+        setInterval(function () {
+            playSample(beat[6]);
+        }, 1000);
+    }, 1500);
 }
 
 document.querySelector(".play").addEventListener("click", function() {
-    playBeat0();
-    playBeat1();
-    setTimeout(function() {
-        playBeat1();
-    }, 750);
-    setTimeout(function() {
-        playBeat2();
-    }, 1500);
+    sickbeat();
 });

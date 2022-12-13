@@ -37,7 +37,11 @@ let beat: string[] = [("./samples/A.mp3"), ("./samples/C.mp3"), ("./samples/F.mp
 
 let check: number = 0;
 let count: number = 0;
-let sound: number;
+let tone: number;
+//vermischt die samples aus beat[] in zufälliger Reihenfolge (ist nicht perfekt, funktioniert aber für den Zweck der Aufgabe, Fisher Yates Method wäre aber theoretisch besser)
+let remix = beat.sort(function(){
+    return 0.5 - Math.round(Math.random())
+});
 
 //Funkion playSample (wird für die pads nicht benutzt, deswegen erst hier)
 function playSample(sample_selector: string) {
@@ -45,18 +49,22 @@ function playSample(sample_selector: string) {
     sound.play();
 }
 
-//Funktion für den Remix
-function Mix() {
-    playSample(beat[count]);
-    count = Math.round(Math.random() * 9);
-};
-
 //Funktion für den Beat
 function myBeat() {
     playSample(beat[count]);
     count += 1;
-    if (count > (beat.length - 1))
+    if (count > (beat.length - 1)) {
         count = 0;
+    }
+}
+
+//Funktion für den Remix
+function Remix() {
+    playSample(remix[count]);
+    count += 1;
+    if (count > (remix.length - 1)) {
+        count = 0;
+    }
 }
 
 //Bedingung, welcher beat wird abgespielt
@@ -65,7 +73,7 @@ function playSong() {
         myBeat();
     }
     else {
-        Mix();
+        Remix();
     }
 }
 
@@ -74,12 +82,12 @@ function PlayBeat() {
     if (document.querySelector("#playbtn i").classList.contains("fa-play")) {
         document.querySelector("#playbtn i").classList.remove("fa-play");
         document.querySelector("#playbtn i").classList.add("fa-stop");
-        sound = setInterval(playSong, 500);
+        tone = setInterval(playSong, 500);
     }
     else {
         document.querySelector("#playbtn i").classList.remove("fa-stop");
         document.querySelector("#playbtn i").classList.add("fa-play");
-        clearInterval(sound);
+        clearInterval(tone);
         count = 0;
     }
 }
@@ -92,4 +100,9 @@ document.querySelector("#playbtn").addEventListener("click", function () {
 //Event um die Variable check auf 1 zu setzen, das dient als token um zu entscheiden was abgespielt wird.
 document.querySelector("#remixbtn").addEventListener("click", function () {
     check = 1;
+    //vermischt die samples aus beat[] in zufälliger Reihenfolge (ist nicht perfekt, funktioniert aber für den Zweck der Aufgabe, Fisher Yates Method wäre aber theoretisch besser)
+    let newremix = beat.sort(function(){
+        return 0.5 - Math.round(Math.random())
+    });
+    remix = newremix;
 });

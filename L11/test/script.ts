@@ -17,20 +17,10 @@ interface Task {
     checked: Boolean;
 }
 
-let ToDoList: Task[] = [
-    {
-        name: "Lorem",
-        checked: true
-    },
-    {
-        name: "Ipsum",
-        checked: false
-    },
-    {
-        name: "Dolor",
-        checked: false
-    }
-];
+let ToDoList: Task[] = [];
+
+var todosText: string[] =       ["Lorem" , "Ipsum" , "Dolor"];
+var todosChecked: boolean[] =    [true    , false   , false];
 
 /**
  * Die Anwendung wird immer wieder auf die selben
@@ -48,7 +38,7 @@ var counterDOMElement: HTMLElement;
  * Sobald der DOM geladen wurde können grundlegende DOM-Interaktionen
  * initialisiert werden
  */
-window.addEventListener("load", function (): void {
+window.addEventListener("load", function(): void {
 
     /**
      * Jetzt da der DOM verfügbar ist können die wichtigsten Elemente
@@ -97,17 +87,17 @@ function drawListToDOM(): void {
          * ein Wert einer Variablen benötigt (bspw. für die CSS Klasse oder für den ToDo-Text),
          * hier muss die Zeichenkette unterbrochen werden.
          */
-        todo.innerHTML = "<span class='check " + ToDoList[index].checked + "'><i class='fas fa-check'></i></span>"
-            + ToDoList[index].name +
-            "<span class='trash fas fa-trash-alt'></span>";
+        todo.innerHTML =  "<span class='check " + ToDoList[index].checked + "'><i class='fas fa-check'></i></span>"
+                            + ToDoList[index].name +
+                            "<span class='trash fas fa-trash-alt'></span>";
 
         // Zuweisen der Event-Listener für den Check- und den Trash-Button
-        todo.querySelector(".check").addEventListener("click", function (): void {
+        todo.querySelector(".check").addEventListener("click", function(): void {
             // hier wird der Index, also die aktuelle Stelle im Array dieses ToDos,
             // übergeben, damit an der entsprechenden Stelle im Array der Wert geändert werden kann.
             toggleCheckState(index);
         });
-        todo.querySelector(".trash").addEventListener("click", function (): void {
+        todo.querySelector(".trash").addEventListener("click", function(): void {
             // hier wird der Index, also die aktuelle Stelle im Array dieses ToDos,
             // übergeben, damit die entsprechende Stelle im Array gelöscht werden kann.
             deleteTodo(index);
@@ -143,8 +133,8 @@ function addTodo(): void {
          */
         //todosText.push(inputDOMElement.value);
         //todosChecked.push(false);
-        ToDoList.unshift({ name: inputDOMElement.value, checked: false })
-
+        ToDoList.unshift({name: inputDOMElement.value, checked: false})
+        
         // Jetzt wird der Text aus dem Eingabefeld gelöscht
         inputDOMElement.value = "";
 
@@ -195,7 +185,7 @@ function deleteTodo(index: number): void {
      */
     ToDoList.splice(index, 1);
     //todosChecked.splice(index, 1);
-
+    
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
      * wird wieder getriggert

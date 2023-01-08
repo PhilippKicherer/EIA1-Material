@@ -11,8 +11,20 @@
  * Werte, bspw. Stelle 0 im Array todosText und Stelle 0 im Array
  * todosChecked gehören zusammen zu einem ToDo.
  */
-var todosText = ["Lorem", "Ipsum", "Dolor"];
-var todosChecked = [true, false, false];
+let ToDoList = [
+    {
+        name: "Lorem",
+        checked: true
+    },
+    {
+        name: "Ipsum",
+        checked: false
+    },
+    {
+        name: "Dolor",
+        checked: false
+    }
+];
 /**
  * Die Anwendung wird immer wieder auf die selben
  * DOM-Elemente zugreifen müssen. Damit diese Elemente nicht
@@ -52,12 +64,13 @@ window.addEventListener("load", function () {
 function drawListToDOM() {
     // alle todos erst einmal aus dem DOM löschen
     todosDOMElement.innerHTML = "";
-    var _loop_1 = function (index) {
+    // das ToDo-Array durchlaufen (iterieren) und Todo für Todo in den DOM schreiben
+    for (let index = 0; index < ToDoList.length; index++) {
         /**
          * Neues DIV-Element erstellen (würde auch mit innerHTML = "<div class='todo'></div>" gehen,
          * die Objekt-Instansierung ist aber übersichtlicher)
          */
-        var todo = document.createElement("div");
+        let todo = document.createElement("div");
         todo.classList.add("todo");
         /**
          * Jedes Todo besteht aus etwas Markup, also aus HTML-Elementen
@@ -69,8 +82,8 @@ function drawListToDOM() {
          * ein Wert einer Variablen benötigt (bspw. für die CSS Klasse oder für den ToDo-Text),
          * hier muss die Zeichenkette unterbrochen werden.
          */
-        todo.innerHTML = "<span class='check " + todosChecked[index] + "'><i class='fas fa-check'></i></span>"
-            + todosText[index] +
+        todo.innerHTML = "<span class='check " + ToDoList[index].checked + "'><i class='fas fa-check'></i></span>"
+            + ToDoList[index].name +
             "<span class='trash fas fa-trash-alt'></span>";
         // Zuweisen der Event-Listener für den Check- und den Trash-Button
         todo.querySelector(".check").addEventListener("click", function () {
@@ -85,15 +98,11 @@ function drawListToDOM() {
         });
         // Bis hier hin wurde das neue Todo "zusammengebaut", jetzt wird es in den DOM gerendert.
         todosDOMElement.appendChild(todo);
-    };
-    // das ToDo-Array durchlaufen (iterieren) und Todo für Todo in den DOM schreiben
-    for (var index = 0; index < todosText.length; index++) {
-        _loop_1(index);
     }
     updateCounter();
 }
 function updateCounter() {
-    counterDOMElement.innerHTML = todosText.length + " in total";
+    counterDOMElement.innerHTML = ToDoList.length + " in total";
 }
 /**
  * Ein neues ToDo wird folgendermaßen erstellt:
@@ -112,8 +121,9 @@ function addTodo() {
          * Status der ToDos abbildet, für dieses ToDo (weil selbe Stelle im Array)
          * der Status "unchecked", hier false, gepusht.
          */
-        todosText.push(inputDOMElement.value);
-        todosChecked.push(false);
+        //todosText.push(inputDOMElement.value);
+        //todosChecked.push(false);
+        ToDoList.unshift({ name: inputDOMElement.value, checked: false });
         // Jetzt wird der Text aus dem Eingabefeld gelöscht
         inputDOMElement.value = "";
         /**
@@ -140,7 +150,7 @@ function toggleCheckState(index) {
      * Alternativ könnte man hier natürlich auch andere Schreibweisen (wie sie im
      * Kurs behandelt wurden) nutzen.
      */
-    todosChecked[index] = !todosChecked[index];
+    ToDoList[index].checked = !ToDoList[index].checked;
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
      * wird wieder getriggert
@@ -157,8 +167,8 @@ function deleteTodo(index) {
      * Jetzt muss diese Stelle beider Arrays gelöscht werden,
      * das ToDo-Text-Array und das Checked/Unchecked-Array
      */
-    todosText.splice(index, 1);
-    todosChecked.splice(index, 1);
+    ToDoList.splice(index, 1);
+    //todosChecked.splice(index, 1);
     /**
      * Die zentrale Funktion, um die Liste des ToDo-Arrays in den DOM zu rendern
      * wird wieder getriggert

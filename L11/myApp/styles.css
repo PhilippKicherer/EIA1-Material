@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/*Styles im ganzen Body*/
+body {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/*Styles in der main div (Seite des Notizbuches)*/
+#main {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: 'Indie Flower', cursive;
+    margin: 24px;
+    margin-left: 16%;
+    margin-right: 16%;
+    background-color: #FFE8D1;
+    border-radius: 16px;
+    min-height: 720px;
+    width: 100%
+}
+
+/*Styles zu dem Task-Display*/
+p {
+    font-size: 20px;
+}
+
+/*Styles zu der Task-Liste*/
+#ToDoList {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/*Styles zu den einzelnen Tasks*/
+.task-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+/*Styles zu dem Namen der Task*/
+.task-name {
+    display: inline-block;
+    margin-left: 24px;
+    margin-right: 24px;
+    font-size: 24px;
+    color: #333;
+}
+
+/*Styles zu der Checkbox*/
+.checkbox {
+    height: 24px;
+    width: 24px;
+}
+
+/*Styles zu dem Trash-Button*/
+i.far.fa-trash-alt {
+    font-size: 24px;
+  }
+  
